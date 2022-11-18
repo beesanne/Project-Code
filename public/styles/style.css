@@ -35,7 +35,7 @@ header h1 {
 }
 /* header image  */
 .header-image {
-    background-image: url(./images/pens.jpg);
+    background-image: url(../images/pens.jpg);
     height: 350px;
     background-position: center;
     background-size: cover;

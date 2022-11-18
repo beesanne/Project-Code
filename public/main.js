@@ -1,4 +1,16 @@
+//need to add the fetchData or postData method from the link in the ppt 
+//async function fetchData(route='', data={}, methodType)....
+
+// const { getAllUsers } = require("../server/models/users");
+
+//user class
 class User {
+    // constructor(userName, password, fullName){
+    //     this.userName = userName
+    //     this.password = password;
+    //     this.fullName = fullName
+    // }
+
     constructor(userId, fName, lName, uName, pWord) {
         this.userId = userId;
         this.firstName = fName;
@@ -6,6 +18,7 @@ class User {
         this.username = uName;
         this.password = pWord;
     }
+
     getFullName() {
         return `${this.firstName} ${this.lastName}`;
     }
@@ -80,6 +93,32 @@ const loginForm = document.getElementById("login");
 //use to print and append the info
 const loginInfo = document.getElementById("loginInfo");
 
+//button to get all users 
+
+
+// function getAllUsers(){
+//    if(usersButton.innerText === "") {
+//     fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json')
+//     .then((res) => res.json()) //JSON.parse(res)
+//     .then((data) => {
+//       data.forEach(item => {
+//         let section = `
+//           <div class="food">
+//             <h2>${item.username}</h2>
+//             <p>${item.password}</p>
+//             <p>${item.userId}</p>
+//           </div>
+//         `
+//         usersButton.innerHTML+=section;
+//       })
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     })
+// }
+// }
+
+//adding the event listener 
 //if the login button is clicked do the login in function
 if (loginForm) loginForm.addEventListener("submit", login);
 
@@ -92,6 +131,8 @@ function login(e){
 
     //creating a user object with the username and password
     let user = new User(``, ``, ``, `${username}`, `${password}`);
+    // let user = new User(`${username}`, `${password}`);
+
     console.log(user)
 
     //print out the input to make sure it works 
