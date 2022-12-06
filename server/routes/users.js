@@ -1,20 +1,3 @@
-//set express requires
-
-//
-// post('/login', async(req, req) => {
-//     try{
-//         let user = await User.login(req.body);
-//         res.send({...user, password: undefined})
-
-//     }catch(err){
-//         resizeBy.status(401).send({message: err.message})
-
-//     }
-// })
-
-
-
-
 const express = require('express');
 const User = require('../models/users');
 
