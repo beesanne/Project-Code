@@ -1,4 +1,4 @@
-const { con } = require("./dbconn");
+const con  = require("./dbconn");
 
 // *****************
 // * CREATE TABLE  *
