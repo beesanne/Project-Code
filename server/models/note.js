@@ -32,7 +32,7 @@ async function createNote(note) {
 // *   GET NOTE    *
 // *****************
 async function getNote() {
-    const sql = `SELECT * FROM note WHERE userID="${note.noteID}";`;
+    const sql = `SELECT * FROM note WHERE noteID="${note.noteID}";`;
     let note = await con.query(sql);
     console.log(note);
   }
@@ -41,7 +41,7 @@ async function getNote() {
 // *   EDIT NOTE   *
 // *****************
 async function editNote(note){
-    let sql = `UPDATE note SET note_content ="${note.note_content}" WHERE userID =${note.noteID}`;
+    let sql = `UPDATE note SET note_content ="${note.note_content}" WHERE noteID =${note.noteID}`;
     await con.query(sql);
   
     let updatedNote = await editNote(note);
@@ -52,7 +52,7 @@ async function editNote(note){
 // *  DELETE NOTE  *
 // *****************
 async function deleteNote(note){
-    let sql = `DELETE FROM note WHERE userID=${note.noteID}`
+    let sql = `DELETE FROM note WHERE noteID=${note.noteID}`
     await con.query(sql);
   }
   
