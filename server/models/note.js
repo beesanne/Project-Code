@@ -7,7 +7,7 @@ const con  = require("./dbconn");
 async function createTable() {
     let sql = ` CREATE TABLE IF NOT EXISTS note (
       noteID INT NOT NULL AUTO_INCREMENT,
-      note_content VARCHAR(255) NOT NULL UNIQUE,
+      note_content VARCHAR(255) NOT NULL,
       userID VARCHAR(255) NOT NULL,
       CONSTRAINT notePK PRIMARY KEY(noteID),
       CONSTRAINT userFK FOREIGN KEY(userID) REFERENCES users(userID)
@@ -23,8 +23,7 @@ async function createTable() {
 // *   NEW NOTE    *
 // *****************
 async function createNote(note) {  
-    const sql = `INSERT INTO note (noteID, note_content, userID) VALUES ("${note.noteID}", "${note.note_content}","${note.userID}" );`;
-  
+    const sql = `INSERT INTO note (note_content, userID) VALUES ("${note.note_content}","${note.userID}" );`;
     await con.query(sql);
   }
 
