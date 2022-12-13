@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 
     <title>Register</title>
 </head>
@@ -24,6 +24,7 @@
     <main>
         <form class="container" id="register">
             <h2> Create an Account</h2>
+            <p class="error"></p>
             <!--  input fields for registration   -->
             <label for="fname"> First Name: </label>
             <input type="text" id="fname">
@@ -32,10 +33,10 @@
             <input type="text" id="lname">
             <br>
             <label for="username"> Username: </label>
-            <input type="text" id="username">
+            <input type="text" id="userName">
             <br>
             <label for="password">Password: </label>
-            <input type="password" id="password">
+            <input type="password" id="passWord">
             <br><br>
             <!-- submit button -->
             <input type="submit" id="button"  value="Register">
@@ -43,7 +44,9 @@
     </main>
 
     <section id="registerInfo"></section>
-    <script src="../main.js"></script>
+    <script type="module" src="user.js"></script>
+    <script type="module" src="main.js"></script>
+
 
 </body>
 

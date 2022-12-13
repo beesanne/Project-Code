@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Login</title>
 </head>
 <!-- Main code -->
@@ -23,20 +23,19 @@
     <main>
         <!-- input for sign in -->
         <form class="container" id="login">
+            <p class="error"></p>
             <h2>Sign in</h2>
             <label for="username">Username: </label>
-            <input type="text" id="username">
+            <input type="text" id="userName">
             <br>
             <label for="password">Password: </label>
-            <input type="password" id="password">
+            <input type="password" id="passWord">
             <br><br>
             <input type="submit" id="button" value="Sign in">
-            <button id="users-btn"> Get all Users </button>
         </form>
     </main>
 
-    <section id="loginInfo"></section>
-    <script src="../main.js"></script>
-
+    <script type="module" src="user.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

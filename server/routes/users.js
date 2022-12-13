@@ -11,10 +11,20 @@
         res.status(401).send({message: err.message});
       }
     })
+
+    .post('/', async (req, res) => {
+      try {
+        const users = await User.getUser(req.body);
+        res.send(users);
+      } catch(err) {
+        res.status(401).send({message: err.message});
+      }
+    })
   
     .post('/login', async (req, res) => {
       try {
         let user = await User.login(req.body);
+        console.log("login " + user)
         res.send({...user, password: undefined})
       } catch(err) {
         res.status(401).send({message: err.message});
@@ -24,6 +34,7 @@
     .post('/register', async (req, res) => {
       try {
         let user = await User.register(req.body);
+        console.log(user)
         res.send({...user, password: undefined})
       } catch(err) {
         res.status(401).send({message: err.message});

@@ -1,7 +1,6 @@
 require('dotenv').config();
 const mysql = require('mysql2');
 
-
 const con = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USERNAME,
@@ -17,16 +16,6 @@ const query = (sql, binding) => {
     })
   })
 }
-
-
-con.query(function(err){
-    if(err) throw err;
-    console.log("Connected");
-    con.query("CREATE DATABASE IF NOT EXISTS WDP_Project", function(err, result){
-        if(err) throw err;
-        console.log("Database Created");
-    });
-});
 
 module.exports = {con, query};
 

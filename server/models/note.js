@@ -8,7 +8,7 @@ async function createTable() {
     let sql = ` CREATE TABLE IF NOT EXISTS note (
       noteID INT NOT NULL AUTO_INCREMENT,
       note_content VARCHAR(255) NOT NULL,
-      userID VARCHAR(255) NOT NULL,
+      userID INT NOT NULL,
       CONSTRAINT notePK PRIMARY KEY(noteID),
       CONSTRAINT userFK FOREIGN KEY(userID) REFERENCES users(userID)
     );`;
@@ -23,18 +23,20 @@ async function createTable() {
 // *   NEW NOTE    *
 // *****************
 async function createNote(note) {  
-    const sql = `INSERT INTO note (note_content, userID) VALUES ("${note.note_content}","${note.userID}" );`;
+  console.log(note)
+    const sql = `INSERT INTO note (note_content, userID) VALUES ("${note.noteContent}",${note.userID} );`;
     await con.query(sql);
+
+    return await getNote(note);
   }
 
 
 // *****************
 // *   GET NOTE    *
 // *****************
-async function getNote() {
-    const sql = `SELECT * FROM note WHERE noteID="${note.noteID}";`;
-    let note = await con.query(sql);
-    console.log(note);
+async function getNote(note) {
+    const sql = `SELECT * FROM note WHERE userID=${note.userID};`;
+    return await con.query(sql);
   }
 
 // *****************
@@ -44,8 +46,8 @@ async function editNote(note){
     let sql = `UPDATE note SET note_content ="${note.note_content}" WHERE noteID =${note.noteID}`;
     await con.query(sql);
   
-    let updatedNote = await editNote(note);
-    return updatedNote[0];
+    let updatedNote = await getNote(note);
+    return updatedNote;
   }
 
 // *****************
