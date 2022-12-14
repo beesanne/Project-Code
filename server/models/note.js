@@ -23,7 +23,7 @@ async function createTable() {
 // *   NEW NOTE    *
 // *****************
 async function createNote(note) {  
-  console.log(note)
+  // console.log(note)
     const sql = `INSERT INTO note (note_content, userID) VALUES ("${note.noteContent}",${note.userID} );`;
     await con.query(sql);
 

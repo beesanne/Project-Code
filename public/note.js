@@ -46,7 +46,7 @@ function addNote(e) {
   fetchData("/note/create", note, "POST")
     .then((data) => {
       data.forEach((n) => {
-        console.log(n.note_content);
+        // console.log(n.note_content);
         noteInfo.innerHTML += `
         <ul>
             <li> note ${n.noteID}: ${n.note_content}</li>
